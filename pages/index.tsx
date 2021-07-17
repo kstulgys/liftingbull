@@ -101,7 +101,13 @@ function IndexPage() {
         </Stack>
       </Stack>
       <Stack direction={['column', 'row']} justifyContent="center" fontSize="sm" color="white" pb={1} spacing={[0, 2]} alignItems="center">
-        <Text color="white">Made with ❤️ by "The power belt" team</Text>
+        <Text color="white">
+          Made with{' '}
+          <span role="img" aria-label="heart">
+            ❤️
+          </span>{' '}
+          by &apos;The power belt&apos; team
+        </Text>
         <Text display={['none', 'block']}>|</Text>
         <Text color="white">
           Email us at{' '}

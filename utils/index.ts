@@ -87,6 +87,8 @@ export function getWeightPercents() {
 }
 
 function range(size, startAt = 0) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return [...Array(size).keys()].map((i) => i + startAt)
 }
 

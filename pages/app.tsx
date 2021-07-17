@@ -78,7 +78,11 @@ function Footer() {
   return (
     <Stack isInline py={2} justifyContent="center">
       <Text color="white">
-        Made with ❤️ by{' '}
+        Made with
+        <span role="img" aria-label="heart">
+          ❤️
+        </span>
+        by{' '}
         <Link color="teal.400" isExternal href="mailto:team@thepowerbelt.com?subject=Hi there 👋">
           thepowerbelt
         </Link>{' '}
