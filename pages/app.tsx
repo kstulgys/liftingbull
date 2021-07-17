@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import {
   Checkbox,
-  Grid,
   Stack,
   Text,
   Button,
@@ -15,13 +14,6 @@ import {
   AccordionIcon,
   useDisclosure,
   Link,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
 } from '@chakra-ui/core'
 import Layout from '../components/Layout'
 import { useStore } from '../utils/store'
