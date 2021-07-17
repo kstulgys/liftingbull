@@ -1,9 +1,10 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { Button, Stack, Spinner, Box, Text, FormControl, FormLabel, Input, FormHelperText, HStack, VStack } from '@chakra-ui/core'
+import { Button, Stack, Spinner, Box, Text, FormControl, FormLabel, Input, FormHelperText, HStack, VStack, Icon } from '@chakra-ui/core'
 import { useAuth } from '../utils/useAuth'
 import Layout from '../components/Layout'
 import Link from 'next/link'
+import { FcGoogle } from 'react-icons/fc'
 
 function SigninPage() {
   const router = useRouter()
@@ -42,7 +43,7 @@ function SigninPage() {
         </Box>
         <Box>
           <Button width="full" size="lg" onClick={signInWithGoogle}>
-            Sign in with Google
+            <Icon as={FcGoogle} fontSize="2xl" mr={2} /> Sign in with Google
           </Button>
         </Box>
       </Stack>
@@ -93,6 +94,7 @@ function SigninWithEmail() {
           <FormControl id="email">
             <FormLabel color="white">Email address</FormLabel>
             <Input placeholder="yourEmail@example.com" value={email} bg="white" size="lg" type="email" onChange={(e) => setEmail(e.target.value)} />
+            {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
           </FormControl>
           <FormControl id="password" mt="4">
             <FormLabel color="white">Password</FormLabel>
