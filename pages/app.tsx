@@ -76,17 +76,27 @@ function NeedHelpModal() {
 
 function Footer() {
   return (
-    <Stack isInline py={2} justifyContent="center">
+    <Stack direction={['column', 'row']} justifyContent="center" fontSize="sm" color="white" pb={1} spacing={[0, 2]} alignItems="center">
       <Text color="white">
-        Made with
+        Made with{' '}
         <span role="img" aria-label="heart">
           ❤️
-        </span>
-        by{' '}
+        </span>{' '}
+        by &apos;The power belt&apos; team
+      </Text>
+      <Text display={['none', 'block']}>|</Text>
+      <Text color="white">
+        Email us at{' '}
         <Link color="teal.400" isExternal href="mailto:team@thepowerbelt.com?subject=Hi there 👋">
-          thepowerbelt
+          team@thepowerbelt.com
         </Link>{' '}
-        team
+      </Text>
+      <Text display={['none', 'block']}>|</Text>
+      <Text color="white">
+        Follow us on{' '}
+        <Link color="teal.400" isExternal href="https://www.facebook.com/artunden">
+          facebook
+        </Link>
       </Text>
     </Stack>
   )
