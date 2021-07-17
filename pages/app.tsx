@@ -70,7 +70,7 @@ function NeedHelpModal() {
       {isOpen && (
         <Stack>
           <Text color="white" fontSize="md">
-            If you have any questons, feel free to email us at{' '}
+            If you found a bug or have any questions, feel free to email us at{' '}
             <Link color="teal.400" isExternal href="mailto:team@thepowerbelt.com?subject=Hi there 👋">
               team@thepowerbelt.com
             </Link>{' '}
@@ -456,11 +456,28 @@ function OneRepMaxBody() {
   const oneRepMaxProps = useStore((store) => store.oneRepMaxProps)
 
   return (
-    <Grid gridGap="2" gridTemplateColumns="repeat( auto-fit, minmax(50px, 1fr) )">
+    <Stack isInline overflowX="auto">
+      <Stack width="55px" fontSize="md" color="teal.400">
+        <Box>
+          <Text height={6}>Lift</Text>
+        </Box>
+        <Stack height={12}>
+          <Text my="auto">Reps</Text>
+        </Stack>
+        <Stack height={12}>
+          <Text my="auto">Rpe</Text>
+        </Stack>
+        <Stack height={12}>
+          <Text my="auto">Weight</Text>
+        </Stack>
+        <Stack>
+          <Text>Max</Text>
+        </Stack>
+      </Stack>
       {oneRepMaxProps.map((props) => {
         return <OneRmRow key={props.id} {...props} />
       })}
-    </Grid>
+    </Stack>
   )
 }
 
@@ -494,7 +511,7 @@ function OneRmRow(props) {
 
   return (
     <Stack key={id} spacing="2">
-      <Stack alignItems="center">
+      <Stack alignItems="center" width="80px">
         <Text my="auto" textAlign="center">
           {shortName}
         </Text>
@@ -541,13 +558,13 @@ interface SelectProps {
 }
 
 function Select(props: SelectProps) {
-  const { options, value, onChange, fontSize = 'lg' } = props
+  const { options, value, onChange, fontSize = 'lg', width = 'full' } = props
   return (
     <BaseSelect
+      width={width}
       fontSize={fontSize}
       bg="white"
       onChange={onChange}
-      width="full"
       value={value}
       size="lg"
       style={{

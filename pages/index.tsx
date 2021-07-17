@@ -90,7 +90,7 @@ function IndexPage() {
             </ListItem>
             <Stack pt={6}>
               <Text>
-                If you have any questons, feel free to email us at{' '}
+                If you have any questions, feel free to email us at{' '}
                 <Link color="teal.400" isExternal href="mailto:team@thepowerbelt.com?subject=Hi there 👋">
                   team@thepowerbelt.com
                 </Link>{' '}
