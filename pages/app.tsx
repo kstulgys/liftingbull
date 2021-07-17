@@ -18,7 +18,7 @@ import {
 import Layout from '../components/Layout'
 import { useStore } from '../utils/store'
 import { useAuth } from '../utils/useAuth'
-import { calculateOneRepMax, getKgAndLbs, getPlatesOnBar, getRepsList, getRpeList, getWeightNumbers, getWorksetWeight } from '../utils'
+import { calculateOneRepMax, getKgAndLbs, getPlatesOnBar, getRepsList, getRpeList, getWorksetWeight, getWeightNumbers } from '../utils'
 
 function AppPage() {
   const router = useRouter()
@@ -477,13 +477,13 @@ function OneRmRow(props) {
   const { oneRepMaxProps, units, settingsRef } = useStore((store) => store)
 
   const { id, shortName, rpe, reps, weightKg, weightLbs } = props
-  const repsList = getRepsList()
-  const rpeList = getRpeList()
+  const repsList = React.useMemo(() => getRepsList(), [])
+  const rpeList = React.useMemo(() => getRpeList(), [])
 
-  const oneRMWeight = calculateOneRepMax({ weightKg, weightLbs, units, rpe, reps })
+  const oneRMWeight = React.useMemo(() => calculateOneRepMax({ weightKg, weightLbs, units, rpe, reps }), [weightKg, weightLbs, units, rpe, reps])
 
   const weight = units === 'kg' ? weightKg : weightLbs
-  const weightsList = getWeightNumbers(units, weight)
+  const weightsList = React.useMemo(() => getWeightNumbers(units, weight), [units, weight])
 
   const updateOneRepMaxProp = (prop: string, data: string) => {
     if (!prop || !data) return
@@ -503,7 +503,7 @@ function OneRmRow(props) {
 
   return (
     <Stack key={id} spacing="2">
-      <Stack alignItems="center" width="80px">
+      <Stack alignItems="center" width="95px">
         <Text my="auto" textAlign="center">
           {shortName}
         </Text>
@@ -547,6 +547,7 @@ interface SelectProps {
   value?: string | number
   onChange?: (e: any) => void
   fontSize?: string
+  width?: string
 }
 
 function Select(props: SelectProps) {

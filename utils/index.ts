@@ -86,34 +86,35 @@ export function getWeightPercents() {
   return [0, ...array]
 }
 
+function range(size, startAt = 0) {
+  return [...Array(size).keys()].map((i) => i + startAt)
+}
+
+const round = (num) => +num.toFixed(1)
 export function getWeightNumbers(units: 'kg' | 'lbs', currentValue) {
-  const res = []
-  const round = (num) => +num.toFixed(1)
-  const lowPoint = round(currentValue - 20)
-  const maxPoint = round(currentValue + 20)
+  const totalRange = range(30, Math.round(currentValue - 15))
 
   if (units === 'lbs') {
-    for (let i = lowPoint; i <= maxPoint; i++) {
-      res.push({ name: i, value: i })
-    }
+    return totalRange.map((i) => ({ name: i, value: i }))
   }
 
   if (units === 'kg') {
-    for (let idx = lowPoint; idx <= maxPoint; idx++) {
-      res.push({ name: idx, value: idx })
-      res.push({ name: round(idx + 0.1), value: round(idx + 0.1) })
-      res.push({ name: round(idx + 0.2), value: round(idx + 0.2) })
-      res.push({ name: round(idx + 0.3), value: round(idx + 0.3) })
-      res.push({ name: round(idx + 0.4), value: round(idx + 0.4) })
-      res.push({ name: round(idx + 0.5), value: round(idx + 0.5) })
-      res.push({ name: round(idx + 0.6), value: round(idx + 0.6) })
-      res.push({ name: round(idx + 0.7), value: round(idx + 0.7) })
-      res.push({ name: round(idx + 0.8), value: round(idx + 0.8) })
-      res.push({ name: round(idx + 0.9), value: round(idx + 0.9) })
-    }
+    return totalRange.reduce((acc, next) => {
+      const res = [
+        { name: next, value: next },
+        { name: round(next + 0.1), value: round(next + 0.1) },
+        { name: round(next + 0.2), value: round(next + 0.2) },
+        { name: round(next + 0.3), value: round(next + 0.3) },
+        { name: round(next + 0.4), value: round(next + 0.4) },
+        { name: round(next + 0.5), value: round(next + 0.5) },
+        { name: round(next + 0.6), value: round(next + 0.6) },
+        { name: round(next + 0.7), value: round(next + 0.7) },
+        { name: round(next + 0.8), value: round(next + 0.8) },
+        { name: round(next + 0.9), value: round(next + 0.9) },
+      ]
+      return [...acc, ...res]
+    }, [])
   }
-
-  return res
 }
 
 export function getRpeList() {
