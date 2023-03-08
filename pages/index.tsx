@@ -88,7 +88,7 @@ function IndexPage() {
                 <Text>Access you training info from any device</Text>
               </Box>
             </ListItem>
-            <Stack pt={6}>
+            {/* <Stack pt={6}>
               <Text>
                 If you have any questions, feel free to email us at{' '}
                 <Link color="teal.400" isExternal href="mailto:team@thepowerbelt.com?subject=Hi there 👋">
@@ -96,11 +96,11 @@ function IndexPage() {
                 </Link>{' '}
                 we will be happy to help ❤️
               </Text>
-            </Stack>
+            </Stack> */}
           </List>
         </Stack>
       </Stack>
-      <Stack direction={['column', 'row']} justifyContent="center" fontSize="sm" color="white" pb={1} spacing={[0, 2]} alignItems="center">
+      {/* <Stack direction={['column', 'row']} justifyContent="center" fontSize="sm" color="white" pb={1} spacing={[0, 2]} alignItems="center">
         <Text color="white">
           Made with{' '}
           <span role="img" aria-label="heart">
@@ -122,7 +122,7 @@ function IndexPage() {
             facebook
           </Link>
         </Text>
-      </Stack>
+      </Stack> */}
     </Layout>
   )
 }
