@@ -64,7 +64,7 @@ function NeedHelpModal() {
           <Text color="white" fontSize="md">
             If you found a bug or have any questions, feel free to email us at{' '}
             <Link color="teal.400" isExternal href="mailto:hello@kastproductions.com?subject=Hi there 👋">
-            hello@kastproductions
+              hello@kastproductions
             </Link>{' '}
             we will be happy to help ❤️
           </Text>
@@ -88,7 +88,7 @@ function Footer() {
       <Text color="white">
         Email us at{' '}
         <Link color="teal.400" isExternal href="mailto:hello@kastproductions.com?subject=Hi there 👋">
-        hello@kastproductions.com
+          hello@kastproductions.com
         </Link>{' '}
       </Text>
       <Text display={['none', 'block']}>|</Text>
